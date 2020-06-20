@@ -218,7 +218,6 @@ void draw() {
       }
     }
     dimensionEstimate = log((float)sumDoubledGrid / (float)sumGrid) / log(2);
-    print(sumGrid + ", " + sumDoubledGrid + "; " + (float)sumDoubledGrid / (float)sumGrid + ".");
   }
 }
 
