@@ -20,11 +20,11 @@ var arraySize = 250;
 //For the estimated dimension of the fractal shape
 var countGrid = new Array(arraySize);
 for (let i = 0; i < countGrid.length; i++) { 
-    countGrid[i] = new Array(arraySize);
+  countGrid[i] = new Array(arraySize);
 } 
 var countDoubledGrid = new Array(arraySize*2);
 for (let i = 0; i < countDoubledGrid.length; i++) { 
-    countDoubledGrid[i] = new Array(arraySize*2);
+  countDoubledGrid[i] = new Array(arraySize*2);
 } 
 var sumGrid = 0;
 var sumDoubledGrid = 0;
