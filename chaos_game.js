@@ -38,8 +38,10 @@ function setup() {
   
   hs1 = new HScrollbar(500, 165, 200, 10, 3); //Scrollbar to choose the length fraction
   hs2 = new HScrollbar(500, 95, 200, 10, 3); //Scrollbar to choose the number of sides of the polygon
+  hs2.setPos(530);
   b1 = new Button(550, 365, 100, 37.5);  //Button to update the points
   c1 = new Checkbox(500, 215, 20, 20); //Checkbox to use carpet fraction
+  c1.pressed = true;
   c2 = new Checkbox(500, 255, 20, 20); //Checkbox to allow a point to be picked multiple times in a row
   c3 = new Checkbox(500, 295, 20, 20); //Checkbox to add points to the midpoints of the edges of the polygon
   
