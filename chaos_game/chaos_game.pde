@@ -32,7 +32,7 @@ void setup() {
   
   hs1 = new HScrollbar(1000, 330, 400, 20, 3); //Scrollbar to choose the length fraction
   hs2 = new HScrollbar(1000, 190, 400, 20, 3); //Scrollbar to choose the number of sides of the polygon
-  hs2.setPos(1060);
+  hs2.setNormalPos(0.4f);
   b1 = new Button(1100, 730, 200, 75);  //Button to update the points
   c1 = new Checkbox(1000, 430, 40, 40); //Checkbox to use carpet fraction
   c1.pressed = true;
