@@ -90,57 +90,65 @@ void calculateCarpetFraction(int sides) {
   fraction = 1 / (2 * (1 + sum));
 }
 
+//hs: HScrollbar, s: text above, lowVal: low value of scrollbar, highVal: high value of scrollbar, per: percentage text below, isPerInt: is per an int?
+void TextHScrollbar(HScrollbar hs, String s, int lowVal, int highVal, float per, boolean isPerInt) {
+  hs.update();
+  hs.display();
+  fill(0, 0, 0);
+  textSize(30);
+  text(s, hs.xpos, hs.ypos - 50);
+  textSize(20);
+  text(lowVal, hs.xpos, hs.ypos - 15);
+  text(highVal, hs.xpos + hs.swidth - 15, hs.ypos - 15);
+  if (isPerInt) {
+    text((int) per, hs.xpos, hs.ypos + 50);
+  }
+  else {
+    text(per, hs.xpos, hs.ypos + 50);
+  }
+}
+
+void TextButton(Button b, String s) {
+  b.update();
+  b.display();
+  fill(255, 255, 255);
+  textSize(30);
+  text(s, b.rectX + 45, b.rectY + 47);
+}
+
+void TextCheckbox(Checkbox c, String one, String two, boolean isNumTextOne) {
+  c.update();
+  c.display();
+  fill(0, 0, 0);
+  textSize(20);
+  if (isNumTextOne) {
+    text(one, c.rectX + c.rectXSize + 20, c.rectY + 30);
+  }
+  else {
+    text(one, c.rectX + c.rectXSize + 20, c.rectY + 15);
+    text(two, c.rectX + c.rectXSize + 20, c.rectY + 45);
+  }
+}
+
 void draw() {
   //Dealing with the user input
   noStroke();
   fill(200, 200, 200);
   rect(950, 0, 1500, 900);
   
-  hs1.update();
-  hs1.display();
-  fill(0, 0, 0);
-  textSize(30);
-  text("Length Fraction", 1000, 270);
-  textSize(20);
-  text("0", 1000, 175+130);
-  text("1", 1385, 175+130);
-  text(hs1.normalPos, 1000, 240+130);
+  TextHScrollbar(hs1, "Length Fraction", 0, 1, hs1.normalPos, false);
+  TextHScrollbar(hs2, "Number of Sides", 3, 10, (int) (3.5 + hs2.normalPos * 7), true);
   
-  hs2.update();
-  hs2.display();
-  fill(0, 0, 0);
-  textSize(30);
-  text("Number of Sides", 1000, 130);
-  textSize(20);
-  text("3", 1000, 165);
-  text("10", 1385, 165);
-  text((int) (3.5 + hs2.normalPos * 7), 1000, 230);
-  
-  b1.update();
-  b1.display();
-  fill(255, 255, 255);
-  textSize(30);
-  text("Update", 1145, 777);
+  TextButton(b1, "Update");
   
   fill(0, 0, 0);
   text("Other Options", 1000, 410);
-  c1.update();
-  c1.display();
-  fill(0, 0, 0);
-  textSize(20);
-  text("Use Sierpinski Carpet Fraction", 1060, 460);
   
-  c2.update();
-  c2.display();
-  fill(0, 0, 0);
-  text("Allow the same point of the polygon to", 1060, 525);
-  text("be picked multiple times in a row", 1060, 555);
-  
-  c3.update();
-  c3.display();
-  fill(0, 0, 0);
-  text("Add points to the midpoints of the edges", 1060, 605);
-  text("of the polygon", 1060, 635);
+  TextCheckbox(c1, "Use Sierpinski Carpet Fraction", "", true);
+  TextCheckbox(c2, "Allow the same point of the polygon to", 
+                   "be picked multiple times in a row", false);
+  TextCheckbox(c3, "Add points to the midpoints of the edges", 
+                   "of the polygon", false);
   
   fill(0, 0, 0);
   textSize(30);
